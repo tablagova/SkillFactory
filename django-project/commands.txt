@@ -1,0 +1,149 @@
+python manage.py shell   
+from news.models import *
+User.objects.create_user('user1')
+User.objects.create_user('user2')
+user1=User.objects.get(pk=1)
+Author.objects.create(user=user1)
+Author.objects.create(user=User.objects.get(pk=2))  
+
+cats = ['спорт', 'политика', 'образование', 'наука']
+for cat in cats:
+    Category.objects.create(name=cat)
+
+author_=Author.objects.get(pk=1)
+header_ = 'В Аргентине обнаружен новый динозавр Meraxes gigas с маленькими передники лапами, как у тираннозавра'
+text_ = '''Динозавр, недавно обнаруженный исследователями из Палеонтологического музея Эрнесто Бахмана в Вилья-Эль-Чокон в Аргентине, был идентифицирован как новый вид.
+Названный Meraxes gigas, он жил на 20 миллионов лет раньше тираннозавра, но имел такое же большое тело, острые зубы и пропорционально маленькие передние лапы. Похоже, что оба вида развили свои пропорционально крошечные лапы независимо друг от друга.
+Динозавр был обнаружен в северной Патагонии, Аргентина, в 2012 году, и с тех пор палеонтологи тщательно готовят и исследуют скелет.
+/"К счастью, окаменелость была очень полной и прекрасно сохранилась/", – рассказал Хуан Игнасио Канале, который был одним из исследователей, обнаруживших окаменелость.
+По его словам, они сравнили кости с костями других известных видов, прежде чем пришли к выводу, что это совершенно новый вид. Статья с описанием этого открытия была опубликована в журнале Current Biology.'''
+Post.objects.create(author=author_, type='news', header = header_, text = text_)
+
+cat1 = Category.objects.get(name='наука')
+cat2 = Category.objects.get(name='образование')
+post = Post.objects.get(pk=1)
+post.category.add(cat1)
+post.category.add(cat2) 
+
+post.like()
+post.like()
+post.like()
+post.like()
+post.like()
+post.dislike()
+post.dislike()
+author_.rating 
+author_.update_rating()
+author_.rating    
+
+
+auths = Author.objects.all().order_by('-rating')
+auths[0].user.username        
+auths[0].rating   
+f'Лучший автор {auths[0].user.username} с рейтингом {auths[0].rating}'
+
+
+author_=Author.objects.get(pk=2)
+header_ = 'Ректоры предложили изменить систему лицензирования учебных заведений'
+text_ = '''Российские медицинские и фармацевтические вузы предлагают изменить систему лицензирования образовательных организаций, передав полномочия по лицензированию с регионального на федеральный уровень, сообщили РИА Новости в пресс-службе Сеченовского университета.
+"Медицинские и фармацевтические вузы страны выступили с инициативой о передаче полномочий по лицензированию образовательных организаций с регионального на федеральный уровень. Соответствующие предложения направлены ассоциацией "Совет ректоров медицинских и фармацевтических высших учебных заведений" на имя председателя Государственной Думы РФ Вячеслава Володина", - говорится в сообщении.
+Российские вузы готовы к старту приемной кампании, заявил Чернышенко
+В настоящее время полномочия по лицензированию образовательной деятельности организаций по дополнительным профессиональным программам отнесены к ведению органов государственной власти субъектов России, пояснили в пресс-службе.'''
+Post.objects.create(author=author_, type='news', header = header_, text = text_)
+
+post = Post.objects.get(pk=2) 
+post.category.add(cat)  
+
+posts = Post.objects.all().order_by('-rating')
+best_post =posts[0]
+best_post_items =  [best_post.create_date, best_post.author.user.username, best_post.rating, best_post.header, best_post.preview()]
+print(* best_post_items, sep='/n')
+
+author_=Author.objects.get(pk=1)
+header_ = 'Эволюция не готовила нас к тому, чтобы мы по собственной воле физически нагружали себя ради здоровья и подтянутой формы'
+text_ = '''Если физические упражнения полезны, почему большинство их игнорирует? Если мы рождены бегать и ходить, почему стараемся как можно меньше двигаться? Как разобраться в бесконечном потоке информации о физической активности? Действительно ли сидячий образ жизни — это новое курение? Что полезнее — кардио- или силовые тренировки? Издательство «МИФ» выпускает очень полезную (и захватывающую) книгу профессора эволюционной биологии из Гарварда Дэниела Либермана, в которой содержатся ответы на эти и многие другие вопросы.
+
+Будучи одним из самых известных исследователей эволюции физической активности человека и небесталанным рассказчиком, автор книги удерживает внимание читателя с помощью парадоксов: он рассказывает, как мы эволюционировали, делая часто вынужденные, «противоестественные», можно сказать, «упражнения», а не добровольно занимаясь физической активностью ради здоровья и спортивной формы.
+
+С любезного разрешения издательства публикуем главу, в которой раскрывается мучающий всех без исключения секрет — как сделать физические упражнения чуть более необходимыми и доставляющими чуть больше веселья.
+
+Предпочитаю не предпочитать
+Представьте себя в роли CEO компании, где трудятся сотни неспортивных и физически неактивных людей. Ваши расходы на их медицинское обслуживание растут отчасти из-за их малоподвижности, но вы не хотите принуждать их к физкультуре. Возможно, вы к тому же родитель строптивого подростка и, сколько ни стараетесь, не можете приобщить его хоть к какой-нибудь физкультуре. А может, тщетно стараетесь и себя почаще стаскивать за шиворот с дивана. Как вам добиться своего?..'''
+Post.objects.create(author=author_, type='article', header = header_, text = text_)
+
+post = Post.objects.get(pk=3) 
+cat1 = Category.objects.get(name='наука')
+cat2 = Category.objects.get(name='спорт')
+post.category.add(cat1)
+post.category.add(cat2)
+
+author_=Author.objects.get(pk=2)
+header_ = 'Город засыпает — просыпаются раковые клетки. Новое важное исследование о влиянии циркадных ритмов на развитие рака'
+text_ = '''ак становится по-настоящему опасным заболеванием, когда опухолевые клетки попадают в кровеносную систему и перемещаются по ней из первичного очага во вторичный, — этот процесс называется метастазированием. Новое исследование пациентов с раком груди выявило, что вероятность попадания в кровоток этих опухолевых клеток (CTC — circulating tumor cells) выше ночью, чем днем. По словам хронобиолога из Манчестерского университета Цин-цзюнь Мэн, это открытие поможет лучше отслеживать развитие раковых заболеваний и проливает свет на ранее скрытые физиологические процессы.
+
+Исследователи вот уже несколько десятилетий обсуждают, как циркадные ритмы организма влияют на рак. Новое исследование говорит о том, что, по сути, «рак просыпается, когда люди засыпают», утверждает его соавтор Никола Асето, биолог-онколог из Швейцарского федерального института технологий в Цюрихе. По его словам, это «шаг вперед» в понимании метастазирования — и в долгосрочной перспективе это хорошая новость для пациентов...'''
+Post.objects.create(author=author_, type='article', header = header_, text = text_)
+
+post = Post.objects.get(pk=4) 
+cat = Category.objects.get(name='наука')
+post.category.add(cat)
+
+users = User.objects.all()
+posts = Post.objects.all()         
+Comment.objects.create(post = posts[0], user = users[0], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[1], user = users[1], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[0], user = users[1], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[1], user = users[0], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[2], user = users[0], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[1], user = users[0], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[0], user = users[1], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[1], user = users[0], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[3], user = users[], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[2], user = users[1], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[0], user = users[1], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[2], user = users[0], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[0], user = users[0], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[1], user = users[1], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+Comment.objects.create(post = posts[3], user = users[0], text = 'Kjsnfvlkndafl nadflkn nwlk n. Jwb k jdfk jh def kj ljndf lsa.')
+Comment.objects.create(post = posts[3], user = users[1], text = 'Kjnojnb kjsd flkn nwlk n. Jwb k jdfk jh def zvlknb jpw p.')
+
+
+comments = Comment.objects.all()
+L = list(range(1,10))
+
+import random 
+
+for comment in comments:
+    rep = random.choice(L)
+    for _ in range(rep):
+        comment.like()
+
+L = list(range(1,5))
+
+for comment in comments:
+    rep = random.choice(L)
+    for _ in range(rep):
+        comment.dislike()
+
+
+posts = Post.objects.all()
+L = list(range(1,10))
+
+for post in posts:
+    rep = random.choice(L)
+    for _ in range(rep):
+        post.like()
+
+authors = Author.objects.all()
+
+for author in authors:
+    author.update_rating()
+
+authors = Author.objects.all().order_by('-rating')
+authors[0].user.username
+authors[0].rating
+
+posts = Post.objects.all().order_by('-rating')
+best_post = posts[0]
+best_post_items =  [best_post.create_date, best_post.author.user.username, best_post.rating, best_post.header, best_post.preview()]
+best_post_items
