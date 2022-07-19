@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from django.urls import reverse
 
 POST_TYPES = [
     ('article', 'статья'),
@@ -9,7 +9,7 @@ POST_TYPES = [
 
 
 class Author(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     rating = models.IntegerField(default=0)
 
     def update_rating(self):
@@ -48,6 +48,12 @@ class Post(models.Model):
 
     def preview(self):
         return self.text[0:124] + '...'
+
+    def __str__(self):
+        return self.preview()
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'id': self.id})
 
 
 class PostCategory(models.Model):
