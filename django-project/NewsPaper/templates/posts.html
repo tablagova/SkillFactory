@@ -9,8 +9,10 @@ Posts
 
 
 {% block content %}
-    <h1>Все статьи</h1>
+
+    <div class="col-lg-12 text-center"><h1>Все статьи</h1>
     <p>{% current_time '%b %d %Y %A' %}</p>
+    </div>
     {% if posts %}
 <ul class="list-articles">
         {% for post in posts %}

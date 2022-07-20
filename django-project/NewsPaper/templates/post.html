@@ -10,5 +10,7 @@ Post
 {% block content %}
 <h1>{{ post.header|censor }}</h1>
 <p>{{ post.text|censor|linebreaks }}</p>
+<div class="text-sm-end">
 <p>{{ post.create_date|date:'d.m.Y' }}</p>
+</div>
 {% endblock content %}
