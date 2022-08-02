@@ -23,18 +23,24 @@ class Author(models.Model):
                 self.rating += comment.rating
         self.save()
 
+    def __str__(self):
+        return self.user.username
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.PROTECT, null=True)
-    type = models.CharField(max_length=20, choices=POST_TYPES)
-    create_date = models.DateTimeField(auto_now_add=True)
-    category = models.ManyToManyField(Category, through='PostCategory')
-    header = models.CharField(max_length=255)
-    text = models.TextField()
+    author = models.ForeignKey(Author, on_delete=models.PROTECT, null=True, verbose_name='Автор')
+    type = models.CharField(max_length=20, choices=POST_TYPES, verbose_name='Тип статьи')
+    create_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    category = models.ManyToManyField(Category, through='PostCategory', verbose_name='Категория')
+    header = models.CharField(max_length=255, verbose_name='Название')
+    text = models.TextField(verbose_name='Текст статьи')
     rating = models.IntegerField(default=0)
 
     def like(self):
