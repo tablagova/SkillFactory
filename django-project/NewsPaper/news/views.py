@@ -1,15 +1,32 @@
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import ValidationError
-from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from django.db.models.signals import post_save
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy, reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .forms import PostForm
-from .models import Post
+from .models import Post, Category
 from .filters import PostFilter
+
+
+# def notify_subscribers(sender, instance, created, **kwargs):
+#     print(f'Новая публикация')
+#     send_mail(
+#         subject=f'Новая публикация',
+#         message=f'Добавлена публикация',
+#         from_email='t.a.blagova@yandex.ru',
+#         recipient_list=['tablagova@gmail.com']
+#     )
+#
+#
+# post_save.connect(notify_subscribers, sender=Post)
 
 
 class PostList(ListView):
@@ -94,3 +111,9 @@ class PostDelete(DeleteView):
 
 class PostSearch(PostList):
     template_name = 'posts_search.html'
+
+
+def add_subscription(request, cat_id):
+    category = Category.objects.get(id=cat_id)
+    category.subscribers.add(request.user)
+    return render(request, 'subscribe.html', {'category': category})

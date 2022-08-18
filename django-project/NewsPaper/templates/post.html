@@ -13,4 +13,17 @@ Post
 <div class="text-sm-end">
 <p>{{ post.create_date|date:'d.m.Y' }}</p>
 </div>
+<hr>
+{% if request.user.is_authenticated %}
+    <p>Вы можете подписаться на рассылку о появлении новых статей подобной тематики.</p>
+    {% for category in post.category.all %}
+        <p>{{ category }}
+        <button> <a href="{% url 'subscribe' category.id %}">Подписаться</a> </button>
+        </p>
+    {% endfor %}
+{% else %}
+    <p>Для авторизованных пользователей доступна подписка на новости </p>
+    <button><a href="/accounts/login/">Войти</a></button>
+{% endif %}
+
 {% endblock content %}

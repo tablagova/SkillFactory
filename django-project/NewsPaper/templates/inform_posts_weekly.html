@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Публикации за прошедшую неделю в категории {{category}}</h2>
+    {% for post in posts %}
+        <p>Дата публикации: {{ post.create_date | date:'d.m.Y' }}</p>
+        <h3>{{post.header}}</h3>
+        <p>{{post.preview}} <a href="{{ full_url }}{{post.get_absolute_url}}"> Читать статью </a></p>
+        <hr>
+    {% endfor %}
+</body>
+</html>
