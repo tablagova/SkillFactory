@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Статья </h1>
-<h2>пользователя {{request.user.username}}</h2>
+<h3>пользователя {{request.user.username}}</h3>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}

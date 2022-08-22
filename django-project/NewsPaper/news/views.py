@@ -1,4 +1,5 @@
 from datetime import datetime
+from .tasks import notify_subscribers
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -8,11 +9,12 @@ from django.db.models.signals import post_save
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect
 
 from .forms import PostForm
-from .models import Post, Category
+from .models import Post, Category, Author
 from .filters import PostFilter
 
 
@@ -75,6 +77,23 @@ class PostCreate(PermissionRequiredMixin, CreateView):
             raise ValidationError('Недопустимая операция')
         return super().form_valid(form)
 
+    def post(self, request, *args, **kwargs):
+        categories = request.POST.getlist('category')
+        post_type = 'article' if request.path == reverse('article_create') else 'news'
+        post = Post(
+            author=Author.objects.get(user=request.user),
+            type=post_type,
+            header=request.POST.get('header'),
+            text=request.POST.get('text'),
+        )
+        post.save()
+        for category in categories:
+            post.category.add(category)
+
+        notify_subscribers.delay(post.id)
+
+        return redirect(reverse('post', kwargs={'id': post.id}))
+
 
 class PostUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = ('news.change_post',)
@@ -117,3 +136,4 @@ def add_subscription(request, cat_id):
     category = Category.objects.get(id=cat_id)
     category.subscribers.add(request.user)
     return render(request, 'subscribe.html', {'category': category})
+
