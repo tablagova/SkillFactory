@@ -1,4 +1,8 @@
+import logging
 from datetime import datetime
+
+from django.core.cache import cache
+
 from .tasks import notify_subscribers
 
 from django.contrib.auth.decorators import login_required
@@ -55,10 +59,20 @@ class PostList(ListView):
 
 
 class PostDetail(DetailView):
-    model = Post
+    # model = Post
     template_name = 'post.html'
     context_object_name = 'post'
     pk_url_kwarg = 'id'
+    queryset = Post.objects.all()
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["id"]}')
+
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["id"]}', obj)
+
+        return obj
 
 
 class PostCreate(PermissionRequiredMixin, CreateView):
@@ -135,5 +149,14 @@ class PostSearch(PostList):
 def add_subscription(request, cat_id):
     category = Category.objects.get(id=cat_id)
     category.subscribers.add(request.user)
+
+    # logger = logging.getLogger('django')
+    # logger.warning('Platform is running at risk')
+    # logger.critical('Payment system is not responding')
+    # logger.info('Info message')
+
     return render(request, 'subscribe.html', {'category': category})
 
+
+def index(request):
+    return render(request, 'mainpage.html')

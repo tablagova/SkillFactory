@@ -1,4 +1,4 @@
-import logging
+import loggings
 
 from django.conf import settings
 
@@ -11,7 +11,7 @@ from django_apscheduler.models import DjangoJobExecution
 from news.management.commands.tasks import weekly_mail
 
 
-logger = logging.getLogger(__name__)
+logger = loggings.getLogger(__name__)
 
 
 def delete_old_job_executions(max_age=604_800):

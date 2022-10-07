@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.cache import cache
 from django.db import models
 from django.urls import reverse
 
@@ -61,6 +62,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post', kwargs={'id': self.id})
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        cache.delete(f'post-{self.id}')
 
 
 class PostCategory(models.Model):

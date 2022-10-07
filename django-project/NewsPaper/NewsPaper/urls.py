@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.decorators.cache import cache_page
+
+from news.views import index
+
 
 urlpatterns = [
+    path('', cache_page(60)(index)),
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
     path('articles/', include('articles.urls')),

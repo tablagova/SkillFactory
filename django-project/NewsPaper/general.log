@@ -1,0 +1,218 @@
+2022-10-07 12:15:43,745 INFO Watching for file changes with StatReloader
+2022-10-07 12:15:48,623 INFO "GET / HTTP/1.1" 200 2876
+2022-10-07 12:15:48,725 INFO "GET /static/js/scripts.js HTTP/1.1" 200 303
+2022-10-07 12:15:48,763 INFO "GET /static/css/styles.css HTTP/1.1" 200 207725
+2022-10-07 12:15:49,507 WARNING "GET /favicon.ico HTTP/1.1" 404 2751
+2022-10-07 12:15:51,890 INFO "GET /news/ HTTP/1.1" 200 7983
+2022-10-07 12:15:54,391 INFO "GET /news/68 HTTP/1.1" 200 12570
+2022-10-07 12:15:59,078 INFO "GET /accounts/login/ HTTP/1.1" 200 1676
+2022-10-07 12:16:05,850 INFO "POST /accounts/login/ HTTP/1.1" 302 0
+2022-10-07 12:16:05,884 INFO "GET /userpage/ HTTP/1.1" 200 519
+2022-10-07 12:16:27,012 INFO "GET /news/66 HTTP/1.1" 200 7337
+2022-10-07 12:16:29,669 INFO "GET /news/subscribe/3/ HTTP/1.1" 200 3029
+2022-10-07 12:20:48,807 INFO C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 12:20:52,889 INFO Watching for file changes with StatReloader
+2022-10-07 12:21:09,038 INFO "GET /news/ HTTP/1.1" 200 7983
+2022-10-07 12:21:11,429 INFO "GET /news/66 HTTP/1.1" 200 7337
+2022-10-07 12:21:13,771 WARNING Platform is running at risk
+2022-10-07 12:21:13,771 CRITICAL Payment system is not responding
+2022-10-07 12:21:13,780 INFO "GET /news/subscribe/3/ HTTP/1.1" 200 3029
+2022-10-07 12:22:27,856 INFO C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 12:22:32,111 INFO Watching for file changes with StatReloader
+2022-10-07 12:23:48,394 INFO C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 12:23:51,550 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:27:17,148 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:27:19,864 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:27:19,864 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:27:31,290 INFO basehttp "GET /news/ HTTP/1.1" 200 7983
+2022-10-07 12:27:31,290 INFO basehttp "GET /news/ HTTP/1.1" 200 7983
+2022-10-07 12:27:33,775 INFO basehttp "GET /news/62 HTTP/1.1" 200 9296
+2022-10-07 12:27:33,775 INFO basehttp "GET /news/62 HTTP/1.1" 200 9296
+2022-10-07 12:27:35,883 WARNING views Platform is running at risk
+2022-10-07 12:27:35,883 WARNING views Platform is running at risk
+2022-10-07 12:27:35,883 CRITICAL views Payment system is not responding
+2022-10-07 12:27:35,883 CRITICAL views Payment system is not responding
+2022-10-07 12:27:35,888 INFO basehttp "GET /news/subscribe/5/ HTTP/1.1" 200 3023
+2022-10-07 12:27:35,888 INFO basehttp "GET /news/subscribe/5/ HTTP/1.1" 200 3023
+2022-10-07 12:28:28,976 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:28:28,976 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:28:31,928 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:28:41,171 INFO basehttp "GET /news/59 HTTP/1.1" 200 3161
+2022-10-07 12:28:49,812 INFO basehttp "GET /news/62 HTTP/1.1" 200 9296
+2022-10-07 12:28:52,211 WARNING views Platform is running at risk
+2022-10-07 12:28:52,211 CRITICAL views Payment system is not responding
+2022-10-07 12:28:52,216 INFO basehttp "GET /news/subscribe/2/ HTTP/1.1" 200 3023
+2022-10-07 12:30:26,018 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 12:30:28,824 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:30:34,900 INFO basehttp "GET /news/68 HTTP/1.1" 200 13052
+2022-10-07 12:30:38,008 WARNING views Platform is running at risk
+2022-10-07 12:30:38,008 CRITICAL views Payment system is not responding
+2022-10-07 12:30:38,013 INFO basehttp "GET /news/subscribe/6/ HTTP/1.1" 200 3025
+2022-10-07 12:36:36,820 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:36:40,148 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:37:30,407 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:37:33,092 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:39:18,346 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:39:21,471 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:40:03,353 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:40:06,346 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:40:47,588 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:42:09,716 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:42:46,324 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 12:42:49,527 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:46:27,731 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:46:30,542 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:46:50,592 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:46:53,529 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:47:41,309 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:47:45,502 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:51:23,357 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:51:27,127 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:51:55,330 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:51:57,872 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:54:35,964 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:54:39,026 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 12:56:41,452 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 12:56:43,901 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 13:10:00,948 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 13:10:03,900 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 13:40:26,021 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 13:40:29,414 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 13:49:21,900 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 13:49:27,106 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 13:50:24,917 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 13:50:28,120 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 13:53:56,050 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 13:54:00,054 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:23:24,010 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:23:26,553 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:23:58,395 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:24:00,995 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:28:11,596 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:28:14,202 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:28:22,153 CRITICAL views Payment system is not responding
+2022-10-07 14:31:05,400 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 14:31:08,556 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:31:19,103 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 14:31:21,879 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:41:21,439 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:41:24,076 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:42:02,497 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:42:05,668 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:49:10,687 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:49:14,094 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:49:55,644 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:49:58,078 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:51:42,776 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 14:51:45,618 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:52:56,045 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 14:52:59,521 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:53:33,870 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 14:53:35,973 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 14:53:47,515 WARNING views Platform is running at risk
+2022-10-07 14:53:47,516 CRITICAL views Payment system is not responding
+2022-10-07 14:59:45,238 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 14:59:47,944 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:00:00,796 WARNING views Platform is running at risk
+2022-10-07 15:00:00,797 CRITICAL views Payment system is not responding
+2022-10-07 15:08:06,435 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:08:09,669 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:08:21,255 WARNING views Platform is running at risk
+2022-10-07 15:08:21,255 CRITICAL views Payment system is not responding
+2022-10-07 15:11:09,654 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:11:14,759 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:16:23,104 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:16:26,229 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:16:39,154 WARNING views Platform is running at risk
+2022-10-07 15:16:39,155 CRITICAL views Payment system is not responding
+2022-10-07 15:17:32,445 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:17:35,836 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:18:35,227 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:18:44,325 WARNING views Platform is running at risk
+2022-10-07 15:18:44,325 CRITICAL views Payment system is not responding
+2022-10-07 15:34:40,560 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:34:43,795 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:35:00,987 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:51:53,128 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:52:28,339 WARNING views Platform is running at risk
+2022-10-07 15:52:28,340 CRITICAL views Payment system is not responding
+2022-10-07 15:54:29,532 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:54:32,358 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:54:48,439 WARNING views Platform is running at risk
+2022-10-07 15:54:48,443 CRITICAL views Payment system is not responding
+2022-10-07 15:56:33,109 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 15:56:38,055 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 15:58:27,383 WARNING views Platform is running at risk
+2022-10-07 15:58:27,386 CRITICAL views Payment system is not responding
+2022-10-07 16:01:54,594 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 16:01:58,220 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 16:04:57,449 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 16:23:17,613 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 16:23:36,810 WARNING views Platform is running at risk
+2022-10-07 16:23:36,813 CRITICAL views Payment system is not responding
+2022-10-07 16:24:20,972 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 16:24:24,285 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 16:24:38,723 WARNING views Platform is running at risk
+2022-10-07 16:24:38,725 CRITICAL views Payment system is not responding
+2022-10-07 16:28:17,636 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 16:34:52,401 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 16:35:04,993 WARNING views Platform is running at risk
+2022-10-07 16:35:04,994 CRITICAL views Payment system is not responding
+2022-10-07 16:36:13,455 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 16:39:24,336 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 16:39:34,754 WARNING views Platform is running at risk
+2022-10-07 16:39:34,756 CRITICAL views Payment system is not responding
+2022-10-07 16:47:05,173 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 18:14:25,040 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 18:14:39,468 WARNING views Platform is running at risk
+2022-10-07 18:14:39,469 CRITICAL views Payment system is not responding
+2022-10-07 18:18:38,794 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 18:18:42,091 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 18:19:31,115 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 18:19:33,942 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 18:19:51,264 WARNING views Platform is running at risk
+2022-10-07 18:19:51,264 CRITICAL views Payment system is not responding
+2022-10-07 18:24:45,951 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 18:24:50,286 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 18:35:28,228 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 18:35:32,686 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:27:30,011 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:32:00,215 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:32:31,494 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:37:23,904 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:37:30,969 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:38:44,671 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:40:02,896 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:40:08,943 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:41:37,202 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:41:53,157 WARNING views Platform is running at risk
+2022-10-07 20:41:53,159 CRITICAL views Payment system is not responding
+2022-10-07 20:43:44,994 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:43:54,589 WARNING views Platform is running at risk
+2022-10-07 20:43:54,590 CRITICAL views Payment system is not responding
+2022-10-07 20:44:36,037 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 20:44:43,872 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:45:02,021 WARNING views Platform is running at risk
+2022-10-07 20:45:02,022 CRITICAL views Payment system is not responding
+2022-10-07 20:45:02,023 INFO views Info message
+2022-10-07 20:46:56,616 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:47:02,300 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:48:47,968 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:48:53,746 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:49:29,799 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:49:34,494 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:50:14,930 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 20:50:20,613 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:51:11,180 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:58:10,693 INFO autoreload C:\Python\Projects\django-project\NewsPaper\NewsPaper\settings.py changed, reloading.
+2022-10-07 20:58:13,613 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 20:58:38,685 INFO autoreload C:\Python\Projects\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 20:58:43,067 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 21:12:46,088 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 21:13:47,779 INFO autoreload C:\Users\tatiana\SkillFactory\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 21:13:53,935 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 21:14:23,400 INFO autoreload C:\Users\tatiana\SkillFactory\django-project\NewsPaper\news\views.py changed, reloading.
+2022-10-07 21:14:27,702 INFO autoreload Watching for file changes with StatReloader
+2022-10-07 21:14:38,856 WARNING views Platform is running at risk
+2022-10-07 21:14:38,856 CRITICAL views Payment system is not responding
+2022-10-07 21:14:38,856 INFO views Info message
