@@ -1,0 +1,18 @@
+{% extends 'topics/index.html' %}
+{% block content %}
+<div class="col-sm-8">
+<h2>Аавторизация</h2>
+<p>
+    Если у вас нет учетной записи, пожалуйста,
+    <a href="{% url 'user_signup' %}">зарегистрируйтесь</a>
+</p>
+<div class="form-error">{{ form.non_field_error }}</div>
+    <div class="single-form-left">
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success ">Войти</button>
+</form>
+    </div>
+</div>
+{% endblock %}

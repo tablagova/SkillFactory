@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Пользователь {{reply.author.nickname}} оставил отклик на ваше объявление
+        от {{reply.create_date | date:"d.m.Y"}} "{{reply.topic.title}}".</p>
+    <p>Чтобы ознакомиться с ним, <a href="{{ full_url }}"> перейдите на сайт. </a></p>
+</body>
+</html>

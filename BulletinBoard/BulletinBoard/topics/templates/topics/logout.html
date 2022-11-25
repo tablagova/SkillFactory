@@ -1,0 +1,11 @@
+{% extends 'topics/index.html' %}
+{% block content %}
+<div class="col-sm-8">
+<h2>Выход</h2>
+<p>Вы действительно хотите выйти?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success ">Выйти</button>
+</form>
+</div>
+{% endblock %}

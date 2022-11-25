@@ -1,0 +1,15 @@
+{% extends 'topics/index.html' %}
+{% block content %}
+<div class="col-sm-8">
+<h2>Регистрация</h2>
+    <br>
+    <div class="single-form-left">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success ">Зарегистрироваться</button>
+</form>
+        <br>
+    </div>
+</div>
+{% endblock %}

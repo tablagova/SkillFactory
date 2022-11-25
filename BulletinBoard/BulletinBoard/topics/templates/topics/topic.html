@@ -1,0 +1,52 @@
+{% extends 'topics/index.html' %}
+{% block content %}
+    <div class="col-sm-8">
+      <h2>{{ object.title }}</h2>
+      <h5>{{ object.create_date|date:"d.m.Y"}}. Автор: {{object.author}}</h5>
+      <p>Категория: {{object.category}}</p>
+
+      <p>{{ object.content | safe }}</p>
+
+      <p>{{ object.simple_context }}</p>
+      <br>
+
+        {% if request.user.is_authenticated  and request.user == object.author.user %}
+          <p>
+            <button class="btn btn-success"> <a class="text-white" href="{% url 'update_topic' object.pk %}">Изменить объявление</a> </button>
+            <button class="btn btn-success"> <a class="text-white" href="{% url 'delete_topic' object.pk %}">Удалить объявление</a> </button>
+        {% endif %}
+
+        <br>
+        <div class="single-form-left">
+            <h5>Откликнуться на объявление:</h5>
+            <form action="{% url 'add_reply' topic.id %}" method="POST" class="mt-4">
+                {% csrf_token %}
+                <textarea class="form-control border" rows="5" name="text"></textarea>
+                <button type="submit" class="mt-3 btn btn-success btn-block py-3">
+                    Отправить
+                </button>
+            </form>
+            <br>
+        </div>
+
+        <div class="container mt-3">
+    {% if object.approved_replies %}
+      <h4>Отклики пользователей:</h4>
+      <div class="border p-3">
+        {% for reply in object.approved_replies %}
+          <div class="media p-3">
+          <img src= "{{ reply.author.avatar.url }}" alt="Avatar" class="align-self-start mr-3 mt-3 rounded-circle" style="width:60px;">
+          <div class="media-body">
+            <h4>{{ reply.author }} <small><i>Posted on {{ reply.create_date|date:"d.m.Y H:i:s"}}</i></small></h4>
+            <p>{{ reply.text }}</p>
+          </div>
+          </div>
+          <br>
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>
+        <br>
+    </div>
+
+{% endblock %}

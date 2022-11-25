@@ -1,0 +1,55 @@
+{% extends 'topics/index.html' %}
+
+{% block content %}
+
+<div class="col-sm-8">
+         <h2>Отзывы на ваши бъявления</h2>
+{% if replies %}
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Дата, Автор, Текст</th>
+    <th>Текущий статус</th>
+    <th>Принять/отклонить</th>
+  </tr>
+  {% for reply in replies %}
+  <tr>
+    <td>
+         <h5>{{ reply.create_date|date:"d.m.Y H:i:s"}} {{ reply.author.nickname }}</h5>
+         <p>{{reply.text | truncatechars:100}}...</p>
+         <p><b>Отзыв к объявлению от {{reply.topic.create_date|date:"d.m.Y H:i:s"}}:
+             <br>
+             <a href="{% url 'topic' reply.topic.pk %}">
+                 {{reply.topic.title}}
+             </a></b>
+    </td>
+    <td>
+        {% if reply.approved %}
+            <b>Одобрено</b>
+        {% else %}
+            <b>Отклонено</b>
+        {% endif %}
+    </td>
+    <td>
+        {% if reply.approved %}
+        <button type="submit" class="mt-3 btn btn-danger btn-block text-muted">
+            <a href="{% url 'change_reply_approve' reply.pk %}" class="text-white">
+            Отклонить
+            </a>
+        </button>
+        {% else %}
+        <button type="submit" class="mt-3 btn btn-success btn-block text-muted">
+            <a href="{% url 'change_reply_approve' reply.pk %}" class="text-white">
+            Одобрить
+            </a>
+        </button>
+        {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+    <br>
+   <p>Нет отзывов</p>
+{% endif %}
+</div>
+{% endblock %}

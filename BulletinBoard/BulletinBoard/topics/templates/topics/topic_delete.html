@@ -1,0 +1,12 @@
+{% extends 'topics/index.html' %}
+
+{% block content %}
+    <div class="col-sm-8">
+        <h1>Удаление объявления</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Подтвердите удаление объявления <b>"{{ object.title }}"</b></p>
+            <input type="submit" class="btn btn-success" value="Удалить"/>
+        </form>
+    </div>
+{% endblock content %}

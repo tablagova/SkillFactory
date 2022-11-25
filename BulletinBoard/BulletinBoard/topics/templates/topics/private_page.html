@@ -1,0 +1,33 @@
+{% extends 'topics/index.html' %}
+{% load topic_tags %}
+{% block content %}
+    <div class="col-sm-8">
+        <h2>Страница авторизованного пользователя </h2>
+        <div class="card" style="width:200px">
+          <img class="card-img-top" src="{% get_avatar request.user %}" alt="Card image">
+          <div class="card-body">
+          <h4 class="card-title">{% get_nickname request.user %}</h4>
+        </div>
+    </div>
+        <br>
+<h2><a href="/replies/">Посмотреть отзывы на ваши объявления</a></h2>
+        <br>
+<div class="single-form-left">
+    <h5>Изменить псевдоним и аватар:</h5>
+    <form action="{% url 'alter_active_user' %}" method="POST" class="mt-4" enctype="multipart/form-data">
+        {% csrf_token %}
+            <label for="id_nickname">Nickname:</label>
+    <input type="text" class="form-control" placeholder="Enter nickname" id="id_nickname" name="nickname"
+           value="{% get_nickname request.user %}">
+            <label for="avatar">Аватар:</label>
+        <input type="file" class="form-control-file border" id="avatar", name="avatar">
+        <button type="submit" class="mt-3 btn btn-success btn-block ">
+            Отправить
+        </button>
+    </form>
+    <br>
+</div>
+
+    </div>
+{% endblock %}
+
