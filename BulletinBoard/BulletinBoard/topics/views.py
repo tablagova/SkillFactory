@@ -126,14 +126,17 @@ class AddTopic(LoginRequiredMixin, CreateView):
 class UpdateTopic(LoginRequiredMixin, UpdateView):
     form_class = TopicForm
     model = Topic
-    template_name = 'topics/topic_add.html'
+    template_name = 'topics/topic_edit.html'
 
-    # def form_valid(self, form):
-    #     form.save(commit=False)
-    #     if self.request.user == self.object.author.user:
-    #         return super().form_valid(form)
-    #     else:
-    #         raise ValidationError('Недопустимая операция')
+    def form_valid(self, form):
+        print(f'{self.request.user}')
+        print(f'{type(self.request.user)}')
+
+        form.save(commit=False)
+        if self.request.user == self.object.author.user:
+            return super().form_valid(form)
+        else:
+            raise ValidationError('Недопустимая операция')
 
 
 class DeleteTopic(LoginRequiredMixin, DeleteView):
