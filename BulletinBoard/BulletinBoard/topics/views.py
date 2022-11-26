@@ -5,16 +5,43 @@ from allauth.account.views import LoginView, LogoutView, SignupView
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.core.exceptions import ValidationError
-from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.views import View
 
 from .forms import ReplyForm, TopicForm, ActiveUserForm, LoginUserForm, SignupUserForm
+from .management.commands.tasks import send_email
 from .models import *
 
 from django.views.generic import DetailView, ListView, CreateView, TemplateView, UpdateView, DeleteView
+
+
+def get_one_time_code():
+    symbols = string.ascii_letters + string.digits
+    code = ''.join(random.choice(symbols) for _ in range(10))
+    return code
+
+
+def send_code(email, code):
+    subject = f'Проверочный код'
+    message = f'Код для входа {code}'
+    html_content = render_to_string(
+        'topics/inform_simple.html',
+        {
+            'title': f'Код для входа {code}',
+            'text': 'Код для входа действует только один раз',
+        }
+    )
+    send_email(html_content, subject, message, [email])
+
+
+def change_reply_approve(request, pk):
+    reply = Reply.objects.get(pk=pk)
+    reply.approved = False if reply.approved else True
+    reply.save()
+    return redirect('replies')
 
 
 class TopicView(DetailView):
@@ -41,7 +68,6 @@ class TopicListByCategory(ListView):
 
 class TopicsFilterByAuthor(LoginRequiredMixin, ListView):
     model = Reply
-    # ordering = '-create_date'
 
     template_name = 'topics/replies.html'
     context_object_name = 'replies'
@@ -126,22 +152,6 @@ class IndexView(LoginRequiredMixin, TemplateView):
     template_name = 'topics/private_page.html'
 
 
-def change_reply_approve(request, pk):
-    reply = Reply.objects.get(pk=pk)
-    reply.approved = False if reply.approved else True
-    reply.save()
-    return redirect('replies')
-
-
-def send_code(email, code):
-    send_mail(
-        subject=f'Проверочный код',
-        message=f'Код для входа {code}',
-        from_email='t.a.blagova@yandex.ru',
-        recipient_list=[email],
-    )
-
-
 class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'topics/login.html'
@@ -156,8 +166,10 @@ class LoginUser(LoginView):
             code = ''.join(random.choice(symbols) for _ in range(10))
             OneTimeCode.objects.create(code=code, user=user)
             send_code(email, code)
-            # return redirect('code_verify')
-            return render(self.request, 'topics/login_with_code.html', context={'email': email, 'password': password})
+
+            return render(self.request, 'topics/login_with_code.html',
+                          context={'email': email, 'password': password}
+                          )
         else:
             return HttpResponse('Bad credentials')
 
@@ -178,11 +190,10 @@ class SignupUser(SignupView):
         password = self.request.POST['password1']
         user = authenticate(self.request, email=email, password=password)
         if user is not None:
-            symbols = string.ascii_letters + string.digits
-            code = ''.join(random.choice(symbols) for _ in range(10))
+            code = get_one_time_code()
             OneTimeCode.objects.create(code=code, user=user)
             send_code(email, code)
-            # return redirect('code_verify')
+
             return render(self.request, 'topics/login_with_code.html', context={'email': email, 'password': password})
         else:
             return HttpResponse('Bad user')
@@ -196,10 +207,10 @@ class LoginWithCode(TemplateView):
         email = request.POST['email']
         code = request.POST['code']
         try:
-            code_set = OneTimeCode.objects.get(code=code, user__email=email)
+            OneTimeCode.objects.get(code=code, user__email=email)
             user = authenticate(email=email, password=request.POST['password'])
             login(request, user)
-            code_set.delete()
+            OneTimeCode.objects.filter(user__email=email).delete()
             return redirect('home')
         except:
             return HttpResponse('Код недействителен')

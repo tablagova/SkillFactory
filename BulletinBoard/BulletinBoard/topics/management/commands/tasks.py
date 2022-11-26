@@ -7,6 +7,19 @@ SERVER_NAME = '127.0.0.1'
 SERVER_PORT = '8000'
 
 
+def send_email(html_content, subject, body, to):
+
+    msg = EmailMultiAlternatives(
+        subject=subject,
+        body=body,
+        from_email='t.a.blagova@yandex.ru',
+        to=to,
+    )
+
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
+
+
 def weekly_mail():
     full_url = ''.join(['http://', SERVER_NAME, ':', SERVER_PORT])
     subscribers = []
@@ -23,15 +36,7 @@ def weekly_mail():
             'full_url': full_url,
         }
     )
+    email_subject = f"Еженедельная рассылка о новых объявлениях"
+    email_body = f"Анонс объявлений, опубликованных за прошедшую неделю"
 
-    msg = EmailMultiAlternatives(
-        subject=f"Еженедельная рассылка о новых объявлениях",
-        body=f"Анонс объявлений, опубликованных за прошедшую неделю",
-        from_email='t.a.blagova@yandex.ru',
-        to=subscribers,
-    )
-
-    msg.attach_alternative(html_content, "text/html")
-
-    msg.send()
-
+    send_email(html_content, email_subject, email_body, subscribers)
