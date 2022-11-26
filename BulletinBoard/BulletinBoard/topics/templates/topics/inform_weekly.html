@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Объявления, опубликованные за прошедшую неделю</h2>
+    {% for topic in topics %}
+        <p>Дата публикации: {{ topic.create_date | date:'d.m.Y' }}</p>
+        <h3>{{ topic.title }}</h3>
+        <p>{{ topic.simple_context | truncatewords:20 }}
+            <a href="{{ full_url }}{{topic.get_absolute_url}}"> Смотреть объявление </a>
+        </p>
+        <hr>
+    {% endfor %}
+</body>
+</html>

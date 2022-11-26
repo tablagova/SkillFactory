@@ -41,14 +41,14 @@ class TopicListByCategory(ListView):
 
 class TopicsFilterByAuthor(LoginRequiredMixin, ListView):
     model = Reply
-    ordering = '-create_date'
+    # ordering = '-create_date'
 
     template_name = 'topics/replies.html'
     context_object_name = 'replies'
 
     def get_queryset(self):
         topics = Topic.objects.filter(author__user_id=self.request.user).values('id')
-        return Reply.objects.filter(topic_id__in=topics)
+        return Reply.objects.filter(topic_id__in=topics).order_by('-create_date')
 
 
 class AddReply(LoginRequiredMixin, View):

@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="col-sm-8">
-         <h2>Отзывы на ваши бъявления</h2>
+         <h2>Отклики на ваши бъявления</h2>
 {% if replies %}
 <table class="table table-bordered table-striped">
   <tr>
@@ -16,7 +16,7 @@
     <td>
          <h5>{{ reply.create_date|date:"d.m.Y H:i:s"}} {{ reply.author.nickname }}</h5>
          <p>{{reply.text | truncatechars:100}}...</p>
-         <p><b>Отзыв к объявлению от {{reply.topic.create_date|date:"d.m.Y H:i:s"}}:
+         <p><b>Отклик на объявление от {{reply.topic.create_date|date:"d.m.Y H:i:s"}}:
              <br>
              <a href="{% url 'topic' reply.topic.pk %}">
                  {{reply.topic.title}}
